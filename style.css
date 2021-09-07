@@ -1,0 +1,985 @@
+/* -------------
+fonts 
+---------------*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ---------
+variables 
+-------------*/
+
+:root {
+  --main-color: #ecab39;
+  --dark: #030408;
+  --dark-light: #0b0e1a;
+  --white: #ffffff;
+  --white-light: #c8c8c8;
+  --shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  --cursive-font: "Dancing Script", cursive;
+  scroll-behavior: smooth;
+}
+
+/*-------------
+ global settings 
+ ---------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  color: var(--white-light);
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-weight: 700;
+  color: var(--white);
+}
+
+h2 {
+  font-weight: 600;
+  color: var(--white);
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.max-vh-100 {
+  max-height: 100vh;
+}
+
+.sec-padding {
+  padding: 80px 0;
+}
+
+.whats {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20px;
+  bottom: 20px;
+  height: 70px;
+  width: 70px;
+  color: var(--white);
+  font-size: 50px;
+  z-index: 9999;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+.whats::before {
+  content: "Peça pelo WhatsApp";
+  position: absolute;
+  height: 50px;
+  width: 250px;
+  background-color: var(--dark-light);
+  color: var(--white-light);
+  font-size: 18px;
+  padding: 10px 0 0 10px;
+  top: 13%;
+  left: -200px;
+  z-index: -1;
+}
+
+.whats:hover {
+  transform: scale(1.1);
+}
+
+/* --------------
+Section Title 
+-----------------*/
+
+.section-title {
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 35px;
+  text-transform: capitalize;
+}
+
+.section-title h2::before {
+  content: attr(data-title);
+  display: block;
+  font-size: 24px;
+  color: var(--main-color);
+  font-family: var(--cursive-font);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+/* --------------
+buttons 
+----------------*/
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  margin: 30px;
+  background-color: var(--dark-light);
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  font-size: 19px;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--main-color);
+  line-height: 1.5;
+  user-select: none;
+  border: none;
+}
+
+.btn-default {
+  text-align: center;
+}
+
+.btn-default:hover {
+  background-color: var(--main-color);
+  color: var(--white);
+}
+
+/* -----------------
+animation keyframes 
+-------------------*/
+
+@keyframes zoomInOut {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes whats {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ---------------
+header
+------------------- */
+
+.header {
+  padding: 12px 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--dark-light);
+  box-shadow: var(--shadow);
+  z-index: -1;
+  transition: 0.5s ease;
+  transform: translateY(-100%);
+}
+
+.header.sticky::before {
+  transform: translateY(0%);
+}
+
+.header .logo {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  visibility: hidden;
+}
+
+.header .nav-toggler {
+  height: 34px;
+  width: 44px;
+  margin-right: 15px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .nav-toggler.active {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  transition: all 0.5s ease;
+  transform: translateX(-200px);
+}
+
+.header .nav-toggler span {
+  height: 2px;
+  width: 30px;
+  display: block;
+  background-color: var(--white);
+  position: relative;
+}
+
+.header .nav-toggler.active span {
+  background-color: transparent;
+  transition: background-color 0.1s ease;
+}
+
+.header .nav-toggler.active span::before {
+  transform: rotate(45deg);
+  transition: transform 0.5s ease;
+}
+
+.header .nav-toggler.active span::after {
+  transform: rotate(-45deg);
+  transition: transform 0.5s ease;
+}
+
+.header .nav-toggler span::before,
+.header .nav-toggler span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.header .nav-toggler span::before {
+  transform: translateY(-8px);
+}
+
+.header .nav-toggler span::after {
+  transform: translateY(8px);
+}
+
+.header .nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 280px;
+  background-color: var(--dark-light);
+  box-shadow: var(--shadow);
+  overflow-y: auto;
+  padding: 80px 0 40px;
+  transition: transform 0.5s ease;
+  transform: translateX(100%);
+}
+
+.header .nav ul li a {
+  display: block;
+  font-size: 25px;
+  color: var(--white);
+  padding: 10px 30px;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.header .nav.open {
+  transform: translateX(0%);
+}
+
+.header .nav ul li a:hover {
+  color: var(--main-color);
+}
+
+/*-------------
+ home-secton 
+ ---------------*/
+
+.home-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.6;
+  z-index: -1;
+}
+.home-section .home-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("./img/pexels-brett-jordan-825661.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  animation: zoomInOut 20s ease infinite;
+}
+
+.home-section .min-vh-100 {
+  padding: 100px 0;
+}
+
+.home-text {
+  padding: 0 15px;
+  max-width: 700px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.home-text h1 {
+  font-family: var(--cursive-font);
+  font-size: 60px;
+  line-height: 75px;
+  margin: 0 0 5px;
+}
+
+/* .home-section .btn {
+    box-shadow: var(--main-color) 0.5px 0.5px;
+} */
+
+/* -----------------
+Promotion-section
+---------------------*/
+
+.promotion-section {
+  background-color: var(--dark-light);
+  padding: 80px 0 0 0 !important;
+}
+
+.promotion-section .gallery-item {
+  width: calc(100% / 2);
+  padding: 15px;
+}
+
+.gallery-item-img img {
+  width: 100%;
+  cursor: pointer;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE */
+  transition: 0.5s ease;
+}
+
+.gallery-item-img img:hover {
+  -webkit-filter: none;
+  filter: none;
+}
+
+/* ---------------------
+Menu Section 
+----------------------*/
+
+.height-menuSection {
+  height: auto !important;
+  overflow: auto;
+  transition: 0.5s ease;
+}
+
+.menu-section {
+  background-color: var(--dark-light);
+  height: 875px;
+  overflow: hidden;
+  padding-top: 80px !important;
+}
+
+.see-more {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+  padding-top: 30px;
+  background-color: var(--dark-light);
+  overflow-x: hidden;
+}
+
+.seemore-button {
+  color: var(--white);
+  position: relative;
+}
+
+.seemore-button:hover {
+  color: var(--main-color);
+}
+
+.seemore-button::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 1px;
+  background-color: var(--main-color);
+  top: 50%;
+  right: 200px;
+}
+
+.seemore-button::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 1px;
+  background-color: var(--main-color);
+  top: 50%;
+  left: 200px;
+}
+
+.see-less {
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+  padding-top: 30px;
+  background-color: var(--dark-light);
+  overflow-x: hidden;
+}
+
+.seeless-button {
+  color: var(--white);
+  position: relative;
+}
+
+.seeless-button:hover {
+  color: red;
+}
+
+.seeless-button::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 1px;
+  background-color: var(--main-color);
+  top: 50%;
+  right: 200px;
+}
+
+.seeless-button::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 1px;
+  background-color: var(--main-color);
+  top: 50%;
+  left: 200px;
+}
+
+.menu-section .section-title {
+  margin-bottom: 40px;
+}
+
+.menu-tabs {
+  padding: 0 15px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu-tab-item {
+  font-size: 18px;
+  font-family: inherit;
+  text-transform: capitalize;
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+  color: var(--white);
+  cursor: pointer;
+  margin: 0 10px 10px;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.menu-tab-item.active {
+  color: var(--main-color);
+}
+
+.menu-tab-content {
+  display: none;
+}
+
+.menu-tab-content.active {
+  display: flex;
+}
+
+.menu-item {
+  width: 50%;
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-item::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+  border-bottom: 1px dashed var(--white-light);
+}
+
+.menu-item:nth-last-of-type(2)::after,
+.menu-item:nth-last-of-type(1)::after {
+  border: none;
+}
+
+.menu-item-title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  max-width: calc(100% - 80px);
+}
+
+.menu-item-title h3 {
+  font-size: 16px;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover .menu-item-title h3 {
+  color: var(--main-color);
+}
+
+.menu-item-title img {
+  max-width: 110px;
+  margin-right: 15px;
+  max-height: 80px;
+}
+
+.menu-item-price {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--main-color);
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover .menu-item-price {
+  color: var(--white);
+}
+
+/*----------------
+ promotion-social 
+ ----------------*/
+
+.social-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.social-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000d8;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.social-section .social-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("./img/madeira.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  animation: zoomInOut 20s ease infinite;
+}
+
+.social-copy {
+  width: 55%;
+  padding: 0 0 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-copy h3 {
+  font-size: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#follow-us {
+  position: relative;
+  border: solid 2px var(--main-color);
+}
+
+.social-copy .click {
+  position: absolute;
+  bottom: -2rem;
+  right: 0px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(44deg)
+    brightness(102%) contrast(103%);
+}
+
+/*-----------------
+ contact-section
+ ----------------- */
+
+.contact-section {
+  background-color: var(--dark-light);
+  padding-bottom: 80px !important;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.contact-form form input {
+  margin: 5px 0 20px 0;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.contact-form form #comentLabel {
+  margin-bottom: 5px;
+}
+
+.contact-form form #coment {
+  margin-bottom: 0;
+  height: 100px;
+  resize: none;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.contact-form form .btn {
+  width: 300px;
+  align-self: center;
+  margin: 50px 0 0 0;
+}
+
+/*-----------------
+ local-section
+ ----------------- */
+
+.local-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.local-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000d8;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.local-section .local-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("./img/local-background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  animation: zoomInOut 20s ease infinite;
+}
+
+.localization {
+  width: 100%;
+}
+
+/*-----------------
+ footer
+ ----------------- */
+
+.footer {
+  padding: 80px 0 0;
+  background-color: var(--dark-light);
+}
+
+.footer .container .row {
+  justify-content: space-around;
+}
+
+.footer-item ul li a {
+  color: var(--white-light);
+  transition: color 0.3 ease;
+}
+
+.footer-item h3 {
+  text-transform: capitalize;
+  font-size: 22px;
+  margin: 0 0 15px;
+}
+
+.footer-item p {
+  line-height: 30px;
+}
+
+.footer-item .social-links {
+  margin-top: 15px;
+}
+
+.footer-item .social-links a {
+  display: inline-flex;
+  height: 40px;
+  width: 40px;
+  color: var(--white-light);
+  font-size: 22px;
+  align-items: center;
+  transition: color 0.3 ease;
+}
+
+.footer-item ul li a:hover,
+.footer-item .social-links a:hover {
+  color: var(--main-color);
+}
+
+.footer .copyright {
+  margin: 50px 0 20px;
+  width: 100%;
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 14px;
+  border-top: 1px solid var(--white-light);
+}
+
+/*-------------
+  RESPONSIVE 
+  --------------*/
+
+@media screen and (max-width: 1125px) {
+  .social-copy {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .social-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .menu-section {
+    height: 840px;
+  }
+
+  .menu-item {
+    width: 100%;
+  }
+
+  .footer .container .row {
+    justify-content: space-around;
+  }
+
+  .footer-item h3 {
+    font-size: 16px;
+  }
+
+  .footer-item p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .whats {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 20px;
+    bottom: 20px;
+    height: 70px;
+    width: 70px;
+    color: var(--white);
+    font-size: 50px;
+    z-index: 9999;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 1;
+  }
+
+  .whats img {
+    width: 70px;
+  }
+
+  .whats::before {
+    content: "Peça pelo WhatsApp";
+    position: absolute;
+    height: 50px;
+    width: 250px;
+    background-color: var(--dark-light);
+    color: var(--white-light);
+    font-size: 18px;
+    padding: 10px 0 0 10px;
+    top: 13%;
+    left: -200px;
+    z-index: -1;
+    display: none;
+  }
+
+  .gallery-item-img img {
+    width: 100%;
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
+
+  .menu-tab-item {
+    font-size: 15px;
+  }
+
+  .social-copy h3 {
+    font-size: 26px;
+  }
+
+  .contact-form form {
+    width: 95%;
+  }
+
+  .contact-form form .btn {
+    margin-top: 100px;
+  }
+
+  .footer-item h3 {
+    font-size: 14px;
+  }
+
+  #utils {
+    display: none;
+  }
+
+  .footer-item .social-links a {
+    height: 20px;
+    width: 20px;
+    font-size: 15px;
+  }
+}
